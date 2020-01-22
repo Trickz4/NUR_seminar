@@ -37,6 +37,7 @@ namespace NUR.Controllers
 
             var prostorija = db.Strojnas
                 .Where(d => d.Prostorija.ID == id)
+                .OrderBy(t => t.Ime)
                 .Include(x => x.Programska)
                 .Include(y => y.Prostorija)
                 .ToList();
@@ -103,6 +104,7 @@ namespace NUR.Controllers
         }
 
         // GET: Prostorijas/Delete/5
+        [Authorize]
         public ActionResult Delete(int? id)
         {
             if (id == null)

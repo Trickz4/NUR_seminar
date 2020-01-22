@@ -126,7 +126,7 @@ namespace NUR.Controllers
         }
 
         // GET: Programskas/Delete/5
-        //[Authorize]
+        [Authorize]
         public ActionResult Delete(int? id)
         {
             if (id == null)
