@@ -27,7 +27,8 @@ namespace NUR.Controllers
             ////return View(test);
 
             var test = db.Strojnas.Include(x => x.Programska) // povuce Programska tablicu
-                .Include(y => y.Prostorija) // povuce Prostorija tablicu
+                .Include(y => y.Prostorija)
+                .OrderBy(t => t.Ime)// povuce Prostorija tablicu
                 .ToList();
 
 
@@ -61,7 +62,7 @@ namespace NUR.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Ime,Kategorija,Prostorija")] Strojna strojna)
+        public ActionResult Create([Bind(Include = "ID,Ime,Kategorija,ProgramskaId,ProstorijaId")] Strojna strojna)
         {
             if (ModelState.IsValid)
             {

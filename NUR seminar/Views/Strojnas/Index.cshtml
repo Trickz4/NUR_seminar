@@ -12,6 +12,9 @@
 <table class="table">
     <tr>
         <th>
+            ID stroja
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Ime)
         </th>
         <th>
@@ -19,6 +22,9 @@
         </th>
         <th>
             Ime programa
+        </th>
+        <th>
+            Kategorija programa
         </th>
         <th>
             Prostorija
@@ -30,6 +36,9 @@
     {
 <tr>
     <td>
+        @Html.DisplayFor(modelItem => item.ID)
+    </td>
+    <td>
         @Html.DisplayFor(modelItem => item.Ime)
     </td>
     <td>
@@ -39,7 +48,10 @@
         @Html.DisplayFor(modelItem => item.Programska.Ime)
     </td>
     <td>
-        @Html.DisplayFor(modelItem => item.Prostorija.ID)
+        @Html.DisplayFor(modelItem => item.Programska.Kategorija)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Prostorija.Kategorija)
     </td>
     <td>
         @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |

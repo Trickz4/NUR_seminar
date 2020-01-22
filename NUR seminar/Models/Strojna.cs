@@ -12,7 +12,9 @@ namespace NUR.Models
         public string Ime { get; set; }
         public string Kategorija { get; set; }
         public Prostorija Prostorija { get; set; }
+        public int ProstorijaId { get; set; }
         public Programska Programska { get; set; }
+        public int ProgramskaId { get; set; }
         // staviti strani kljuc tu da moze 1 program biti na vise strojne opreme?
         // public Programska Programska { get; set; }
 
