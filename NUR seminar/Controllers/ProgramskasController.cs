@@ -22,9 +22,16 @@ namespace NUR.Controllers
 
             List<Programska> programskalista = db.Programskas.ToList();
 
+            
+
+
+            //var test = db.Programskas.Include(x => x.Strojna).ToList();
+
+
+
             var test = db.Programskas.ToList();
             return View(db.Programskas.ToList());
-
+            //return View(test);
 
 
             //var test = db.Programskas.ToList();
@@ -70,21 +77,21 @@ namespace NUR.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ID,Ime,Kategorija")] Programska programska)
         {
-            //if (ModelState.IsValid)
-            //{
-            //    db.Programskas.Add(programska);
-            //    db.SaveChanges();
-            //    return RedirectToAction("Index");
-            //}
+            if (ModelState.IsValid)
+            {
+                db.Programskas.Add(programska);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
 
-            //return View(programska);
+            return View(programska);
 
             // moj kod
-            var events = from r in db.Programskas
-                         where r.Ime == "asd"
-                         select r; 
+            //var events = from r in db.Programskas
+            //             where r.Ime == "asd"
+            //             select r; 
 
-            return View(events);
+            //return View(events);
         }
 
         // GET: Programskas/Edit/5

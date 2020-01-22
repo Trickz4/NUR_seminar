@@ -17,24 +17,36 @@
         <th>
             @Html.DisplayNameFor(model => model.Kategorija)
         </th>
+        <th>
+            Ime programa
+        </th>
+        <th>
+            Prostorija
+        </th>
         <th></th>
     </tr>
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Ime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Kategorija)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
-            </td>
-        </tr>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Ime)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Kategorija)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Programska.Ime)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Prostorija.ID)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+        @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+    </td>
+</tr>
     }
 
 </table>

@@ -18,7 +18,21 @@ namespace NUR.Controllers
         // GET: Strojnas
         public ActionResult Index()
         {
-            return View(db.Strojnas.ToList());
+            //return View(db.Strojnas.ToList());
+
+            ////var test = db.Programskas.Include(x => x.Strojna) // povuce Strojna tablicu
+            ////    .Include(y => y.Strojna.Prostorija) // povuce Prostoriju tablica preko Strojna tablica
+            ////    .ToList();
+
+            ////return View(test);
+
+            var test = db.Strojnas.Include(x => x.Programska) // povuce Programska tablicu
+                .Include(y => y.Prostorija) // povuce Prostorija tablicu
+                .ToList();
+
+
+
+            return View(test);
         }
 
         // GET: Strojnas/Details/5
@@ -47,16 +61,26 @@ namespace NUR.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Ime,Kategorija")] Strojna strojna)
+        public ActionResult Create([Bind(Include = "ID,Ime,Kategorija,Prostorija")] Strojna strojna)
         {
             if (ModelState.IsValid)
             {
-                db.Strojnas.Add(strojna);
+                var testiranje = db.Strojnas.Add(strojna);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
             return View(strojna);
+
+            //if (ModelState.IsValid)
+            //{
+            //    var testiranje = db.Strojnas.Include(x => x.Prostorija);
+
+            //    db.SaveChanges();
+            //    return RedirectToAction("Index");
+            //}
+
+            //return View(strojna);
         }
 
         // GET: Strojnas/Edit/5
