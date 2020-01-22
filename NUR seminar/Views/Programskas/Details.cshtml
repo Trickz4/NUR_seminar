@@ -1,0 +1,42 @@
+﻿@model NUR.Models.Programska
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Programska</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Ime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Kategorija)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kategorija)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Strojna.ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Strojna.ID)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
