@@ -1,34 +1,76 @@
-﻿@model NUR.Models.Prostorija
+﻿@model IEnumerable<NUR.Models.Strojna>
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Index";
 }
 
-<h2>Details</h2>
-
-<div>
-    <h4>Prostorija</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
+<h2>Ispis opreme po prostoriji</h2>
+<script>
+    var x = 0;
+</script>
+<table class="table">
+    <tr>
+        <th>
+            ID prostorije
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ime)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Kategorija)
-        </dt>
+        </th>
+        <th>
+            Ime programa
+        </th>
+        <th>
+            Kategorija programa
+        </th>
+        <th>
+            Prostorija
+        </th>
+        <th></th>
+    </tr>
 
-        <dd>
-            @Html.DisplayFor(model => model.Kategorija)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Broj)
-        </dt>
+    @foreach (var item in Model)
+    {
 
-        <dd>
-            @Html.DisplayFor(model => model.Broj)
-        </dd>
+        <script>
+            x = x + 1
+        </script>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prostorija.ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kategorija)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Programska.Ime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Programska.Kategorija)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prostorija.Kategorija)
+            </td>
+        </tr>
+    }
+<div>
+    <p>
+        @Html.ActionLink("Back to List", "Index")
+    </p>
 
-    </dl>
+    <p>
+        Ukupan broj artikala u prostoriji :
+        <script>
+            document.write(x);
+        </script>
+
+    </p>
+
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+</table>

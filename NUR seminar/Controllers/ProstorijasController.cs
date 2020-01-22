@@ -28,7 +28,19 @@ namespace NUR.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Prostorija prostorija = db.Prostorijas.Find(id);
+            //Prostorija prostorija = db.Prostorijas.Find(id);
+
+            //var prostorija = db.Strojnas.Include(x => x.Programska)
+            //    .Include(y => y.Prostorija)
+            //    .Where(d => d.Prostorija.ID == id)
+            //    .FirstOrDefault();
+
+            var prostorija = db.Strojnas
+                .Where(d => d.Prostorija.ID == id)
+                .Include(x => x.Programska)
+                .Include(y => y.Prostorija)
+                .ToList();
+
             if (prostorija == null)
             {
                 return HttpNotFound();

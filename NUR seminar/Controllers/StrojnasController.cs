@@ -104,7 +104,7 @@ namespace NUR.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Ime,Kategorija")] Strojna strojna)
+        public ActionResult Edit([Bind(Include = "ID,Ime,Kategorija, ProgramskaId, ProstorijaId")] Strojna strojna)
         {
             if (ModelState.IsValid)
             {

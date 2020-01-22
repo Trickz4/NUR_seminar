@@ -170,6 +170,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\IspisPoProstorijiController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProgramskasController.cs" />
     <Compile Include="Controllers\ProstorijasController.cs" />
@@ -260,6 +261,11 @@
     <Content Include="Views\Prostorijas\Details.cshtml" />
     <Content Include="Views\Prostorijas\Edit.cshtml" />
     <Content Include="Views\Prostorijas\Index.cshtml" />
+    <Content Include="Views\IspisPoProstoriji\Create.cshtml" />
+    <Content Include="Views\IspisPoProstoriji\Delete.cshtml" />
+    <Content Include="Views\IspisPoProstoriji\Details.cshtml" />
+    <Content Include="Views\IspisPoProstoriji\Edit.cshtml" />
+    <Content Include="Views\IspisPoProstoriji\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -11,6 +11,13 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
+            @Html.DisplayNameFor(model => model.ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ID)
+        </dd>
+        <dt>
             @Html.DisplayNameFor(model => model.Ime)
         </dt>
 
@@ -24,6 +31,20 @@
 
         <dd>
             @Html.DisplayFor(model => model.Kategorija)
+        </dd>
+        <dt>
+            Program ID
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProgramskaId)
+        </dd>
+        <dt>
+            Prostorija ID
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProstorijaId)
         </dd>
 
     </dl>
